@@ -12,7 +12,7 @@ namespace AzureCliSnippets.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Azure CLI Snippets.";
         }
     }
 }
