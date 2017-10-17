@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AzureCliSnippets.Models;
@@ -17,9 +18,18 @@ namespace AzureCliSnippets.Pages
         }
 
         public IList<Snippet> Snippets { get; set; }
+        public string ErrorMessage { get; set;  }
         public async Task OnGetAsync()
         {
-            Snippets = await _context.Snippets.Take(10).ToListAsync();
+            try
+            {
+                Snippets = await _context.Snippets.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Snippets = new List<Snippet>();
+                ErrorMessage = "Could not retrieve snippets";
+            }
         }
     }
 }

@@ -12,6 +12,11 @@
 
 <div class="row">
     
+    @if (!String.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">@Model.ErrorMessage</div>
+    }
+
     @foreach (var m in Model.Snippets)
     {
         <h3>@m.Title</h3>
