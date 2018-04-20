@@ -24,7 +24,8 @@ namespace AzureCliSnippets
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SnippetsContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SnippetsContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("SnippetsContext"),
+                opts => opts.EnableRetryOnFailure()));
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                     options.Conventions.AddPageRoute("/View", "view/{id}")
