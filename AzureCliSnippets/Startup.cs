@@ -25,7 +25,10 @@ namespace AzureCliSnippets
         {
             services.AddDbContext<SnippetsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SnippetsContext")));
-            services.AddMvc();
+            services.AddMvc()
+                .AddRazorPagesOptions(options =>
+                    options.Conventions.AddPageRoute("/View", "view/{id}")
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,12 +46,17 @@ namespace AzureCliSnippets
 
             app.UseStaticFiles();
 
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
+                
             });
+
+
         }
     }
 }

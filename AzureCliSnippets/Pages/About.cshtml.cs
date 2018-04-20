@@ -12,7 +12,7 @@ namespace AzureCliSnippets.Pages
 
         public void OnGet()
         {
-            Message = "Azure CLI Snippets v2.";
+            Message = "Azure CLI Snippets v3.";
         }
     }
 }

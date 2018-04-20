@@ -1,0 +1,30 @@
+﻿@page
+@model AzureCliSnippets.Pages.ViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>View Snippet</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Snippet.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Snippet.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Snippet.Content)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Snippet.Content)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Snippet.ViewCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Snippet.ViewCount)
+        </dd>
+    </dl>
+</div>
