@@ -28,7 +28,7 @@ namespace AzureCliSnippets.Pages
             catch (Exception ex)
             {
                 Snippets = new List<Snippet>();
-                ErrorMessage = "Could not retrieve snippets";
+                ErrorMessage = "Could not retrieve snippets (have you visited /migrate?)";
             }
         }
     }
