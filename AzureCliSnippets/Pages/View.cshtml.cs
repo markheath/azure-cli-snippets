@@ -35,9 +35,12 @@ namespace AzureCliSnippets.Pages
             }
 
             // increment the view count
+            /*
             Snippet.ViewCount++;
             await _context.SaveChangesAsync();
-
+            */
+            await _context.Database.ExecuteSqlCommandAsync("UPDATE Snippets SET ViewCount = ViewCount + 1 WHERE Id = {0}",
+                parameters: Snippet.Id);
             return Page();
         }
     }
